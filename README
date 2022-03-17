@@ -1,1 +1,4 @@
-The primary objective of this project is to develop a Voice Recognition system that converts the Doctor’s speech to text accurately. As soon as the doctor clicks on the speak button, doctors speech is recorded and then converted into text. Both the audio file and text file will be saved in the locally directory automatically. Later the entire text gets split and display in their respective fields in the patient prescription form.
+The primary objective of this project is to develop a Voice Recognition system that converts the Doctor’s speech to text accurately. 
+As soon as the doctor clicks on the speak button, doctors speech is recorded and then converted into text.
+Both the audio file and text file will be saved in the locally directory automatically. 
+Later the entire text gets split and display in their respective fields in the patient prescription form.
