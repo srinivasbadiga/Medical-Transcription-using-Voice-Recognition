@@ -1,0 +1,332 @@
+<!doctype html>
+{% load static %}
+<head>
+	<title>VOICE RECOGNITION</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>VOICE RECOGNITION</title> 
+	<link rel="stylesheet" href="{% static 'node_modules/aos/dist/aos.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+	<script src="{% static 'node_modules/aos/dist/aos.js' %}"></script>
+
+</head>
+<body style="background: rgba(224, 223, 223, 0.1);">
+	<app-root></app-root>
+
+	<table  background="{% static 'images\header3.jpg' %}" background-repeat="no-repeat" background-attachment="fixed"  background-size="cover" width="100%"  height="100" data-aos="slide-up">
+	  <tr>
+		<td>
+			<br><br>
+			<div class="topleft"><img src="{% static 'images\image4.jpg' %}" height="200" width="200"></div>
+		</td>
+		<td>
+		<h1 class="ml9">
+		<br>
+			<span class="text-wrapper">
+				<span class="letters">
+			&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp PATIENT 
+			</span><br>
+		
+			<span class="letters">
+			<b style="font-size:70px; color: black; text-shadow: 2px 2px 4px #FFFFFF;">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspPRESCRIPTION</b>
+			</span> 
+			</span>
+		
+	  		</h1>
+	  	</td>
+	 
+	  </tr>
+	  </table>
+	
+	<center>
+	  <br><br><br>
+	  <b><p id="speaking" class="serif1" ></b><b id="rcorners2" data-aos="slide-up">click here to start</b></p></b><br>
+  
+	  <button class="button" id="img" style='font-size:30px' onclick="speaking()" data-aos="slide-up"><i class='fas fa-microphone-alt'></i></button>
+	</center>
+	
+  <br>
+  <br><br>
+
+	
+	<br><br><br>
+	<form action="{% url 'home-page1' %}" method="post">
+        {% csrf_token %}
+	  <center>
+	  <div class="col-container" style="width:20%">
+	  <div class="col" data-aos="slide-up">
+		<center>
+		  <table style="width:50%" >
+		  <tr><td><label for="patientname" ><p class="cursive">Patient Name</p></label><br>
+		 <textarea id="rcorners" name="patientname" rows="1" cols="30">{{data.patientname}}</textarea></td></tr>
+		 </table>
+	   
+		</center>
+	  </div>
+	  </div>
+	</center>
+	<br><br>
+	<div class="col-container" >
+		&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+	  <div class="col" data-aos="fade-right">
+		<center><table >
+	  
+		  <tr><th><h3 class="h33">Cheif Complaints/ History of Present illness<br><hr style="width:100%; border: 1px solid grey;"></h3></th></tr>
+		  
+		  <tr><td><label for="history" ><p class="cursive">Cheif complaints</label><br>
+		  <textarea id="rcorners" name="chiefcomplaints" rows="1" cols="50">{{data.chiefcomplaints}}</textarea></tr></td></center>
+		  
+		  <tr><td><label for="present"><p class="cursive">Other Complaints</label><br>
+		  <textarea id="rcorners" name="othercomplaints" rows="1" cols="50">{{data.othercomplaints}}</textarea></tr></td>
+		
+		  <tr><td><label for="Drugs"><p class="cursive">History of Present Illness</label><br>
+		  <textarea id="rcorners" name="historyP" rows="1" cols="50">{{data.medicalhistory}}</textarea></tr></td>
+		
+		  <tr><td><label for="suggestion"><p class="cursive">Family history</label><br>
+		  <textarea id="rcorners" name="historyf" rows="1" cols="50">{{data.familyhistory}}</textarea></tr></td>
+		
+		  </table>
+		  </center>
+	  </div>
+	  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+	  <div class="col" data-aos="slide-up">
+		<center><table>
+		  <tr><th colspan="2"><h3 class="h33"> Vitals<br><hr style="width:100%; border: 1px solid grey;"></h3></th></tr>
+		  
+		  <tr><td><label for="temperature" ><p class="cursive">Temperature</label><br>
+		  <textarea id="rcorners" name="temperature" rows="1" cols="15">{{data.temperature}}</textarea></td>
+		  <td><label for="pulse" ><p class="cursive">&nbsp Pulse</label><br>
+		  <textarea id="rcorners" name="pulse" rows="1" cols="15">{{data.pulse}}</textarea></td></tr>
+		
+		  <tr><td><label for="systolic" ><p class="cursive">Systolic</label><br>
+		  <textarea id="rcorners" name="systolic" rows="1" cols="15"></textarea></td>
+		
+		  <td><label for="diastolic" ><p class="cursive">&nbsp Diastolic</label><br>
+		  <textarea id="rcorners" name="diastolic" rows="1" cols="15"></textarea></td></tr>
+		  
+		  <tr><td><label for="hemoglobin" ><p class="cursive">Hemoglobin</label><br>
+		  <textarea id="rcorners" name="hemoglobin" rows="1" cols="25">{{data.hemoglobin}}</textarea></td>
+		
+		</table>
+		</center>
+	  </div>
+	  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+	  <div class="col" data-aos="fade-left">
+		
+		<center>
+		  <table><tr><th>
+		  <h3 class="h33"> Past History<br><hr style="width:100%; border: 1px solid grey;"></h3></th></tr>
+		  <tr><td>
+		  <label for="history" ><p class="cursive">History</label><br>
+		  <textarea id="rcorners" name="history" rows="1" cols="50">{{data.pasthistory}}</textarea>
+		  </td></tr>
+		  <tr><td>
+		  <label for="allergies"><p class="cursive">Allergies</label><br>
+		  <textarea id="rcorners" name="present" rows="1" cols="50">{{data.allergies}}</textarea>
+		  </td></tr>
+		  </table>
+		  </center>
+  
+	  </div>
+  
+	</div>
+	<br><br>
+	<div class="col-container">
+		&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+	  <div class="col" data-aos="fade-right">
+		<center>
+		  <table><tr><th><h3 class="h33">Daignosis<br><hr style="width:100%; border: 1px solid grey;"></h3></th></tr>
+		  <tr><td>
+		  <label for="diagnosis" ><p class="cursive">Type of Daignosis</label><br>
+		  <textarea id="rcorners" name="diagnosis" rows="3" cols="51"></textarea></td></tr></table>
+		</center>
+	  </div>
+	  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+	  <div class="col" data-aos="slide-up">
+		<center>
+		  <table><tr><th colspan="2">
+		  <h3 class="h33">  Advice<hr style="width:100%; border: 1px solid grey;"></h3></th></tr>
+		  
+		  <tr><td><label for="rest" ><p class="cursive">Rest/Exercise</label><br>
+		  <textarea id="rcorners" name="rest" rows="2" cols="25">{{data.exercise}}</textarea> </td>
+		  <td><label for="deit" ><p class="cursive">Deit/Exercise</label><br>
+		   &nbsp<textarea id="rcorners" name="deit" rows="2" cols="25">{{data.dietplan}}</textarea></td></tr>
+		  
+		  <tr>
+		  <td>
+		  <label for="followadvice" ><p class="cursive">Follow Advice</label><br>
+		  <textarea id="rcorners" name="followadvice" rows="2" cols="25">{{data.suggestions}}</textarea>&nbsp </td><td>
+		  <label for="comments" ><p class="cursive">Comments</label><br>
+		   &nbsp<textarea id="rcorners" name="comments" rows="2" cols="25">{{data.comments}}</textarea></td></tr>
+		  
+		  <tr><td>
+		  <label for="followupdate" ><p class="cursive">Follow up Date</label><br>
+		  <textarea id="rcorners" name="followupdate" rows="2" cols="25">{{data.nextmeeting}}</textarea>&nbsp </td></tr>
+		  </table>
+		</center>
+	  </div>
+	  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+	  <div class="col" data-aos="fade-left">
+		<center>
+		  <table><tr><th><h3 class="h33"> Investigations<br><hr style="width:100%; border: 1px solid grey;"></h3></th></tr>
+		
+		  
+		  <tr><td><label for="investigations" ><p class="cursive">Laboratory Investigations</label><br>
+		  <textarea id="rcorners" name="investigation" rows="1" cols="50">{{data.labfindings}}</textarea></td></tr>
+		  <tr><td>
+		  <label for="other"><p class="cursive">Other</label><br>
+		  <textarea id="rcorners" name="other" rows="1" cols="50"></textarea></td></tr>
+		  </table>
+		</center>
+	  </div>
+	</div>
+	<br><br>
+	<div class="col-container" style="width:35%;">
+		&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+	  <div class="col" data-aos="slide-up">
+		<center>	
+		  <table><tr><th colspan="2"><h3 class="h33"> Referral<br><hr style="width:100%; border: 1px solid grey;"></h3></th></tr>
+		  
+		  
+		  <tr>
+		  <td><label for="qualification" ><p class="cursive">Qualification</label><br>
+		  <textarea id="rcorners" name="qualification" rows="1" cols="23"></textarea></td>&nbsp &nbsp
+		  &nbsp &nbsp<td><label for="specialization" ><p class="cursive">&nbsp &nbsp &nbsp&nbspSpecialization</label><br>
+		  &nbsp &nbsp &nbsp&nbsp<textarea id="rcorners" name="specialization" rows="1" cols="23"></textarea></td>
+		  <td>
+		  </tr>
+		
+		  <tr>
+		  <td><label for="super speciality degree" ><p class="cursive"> Super Speciality Degree</label><br>
+		  <textarea id="rcorners" name="superspecialitydegree" rows="1" cols="23"></textarea></td>&nbsp &nbsp
+		  &nbsp &nbsp<td><label for="super specialisation " ><p class="cursive">&nbsp &nbsp &nbsp&nbspSuper Specialisation</label><br>
+		  &nbsp &nbsp &nbsp&nbsp<textarea id="rcorners" name="superspecialisation" rows="1" cols="23"></textarea></td>
+		  <td>
+		  </tr>
+		  <tr><td><label for="Referral" ><p class="cursive">Referral</label><br>
+		  <textarea id="rcorners" name="referral" rows="1" cols="23"></textarea></td>&nbsp &nbsp
+		  <tr><td><label for="followupdate" ><p class="cursive">Follow up Date</label><br>
+		  <textarea id="rcorners" name="followupdate" rows="2" cols="23"></textarea></td>&nbsp &nbsp
+		  
+		</table>
+		</center> 
+	  </div>
+	</div>
+	<br><br>
+
+	
+	<div class="col-container">
+		&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+	  <div class="col" data-aos="slide-up">
+		<center>	
+		  <table><tr><th colspan="6"><h3 class="h33"> Drugs<br><hr style="width:100%; border: 1px solid grey;"></h3></th></tr>
+		  
+		  <tr>
+		  <td colspan="2"><label for="drugtype" ><p class="cursive">Drug Type</label><br>
+		  <textarea id="rcorners" name="drugtype" rows="1" cols="35"></textarea>
+		  </td>&nbsp &nbsp
+		  <td colspan="2"><label for="drugname" ><p class="cursive">&nbsp &nbspDrug Name</label><br>
+		  &nbsp &nbsp<textarea id="rcorners" name="drugname" rows="1" cols="35">{{data.drugs}}</textarea></td>
+		  <td colspan="2"><label for="otherdrug" ><p class="cursive">&nbsp &nbspOther Drug</label><br>
+			&nbsp &nbsp<textarea id="rcorners" name="otherdrug" rows="1" cols="35">{{data.otherdrugs}}</textarea></td>
+		  </tr>
+		  <tr  class="drugstyle" style="font-family: Times New Roman;font-size:20px;" >
+			<th><label for="medicine" class="drugstyle2"><center>&nbsp &nbsp&nbsp &nbsp Medicine</center></label></th>
+
+			<th><label for="duration"><center>&nbsp &nbsp&nbsp &nbsp Duration</center></label></th>
+			<th><label for="dosage" ><center>&nbsp &nbsp Dosage</center></label></th>
+			<th><label for="Relation" ><center>&nbsp &nbsp&nbsp &nbsp Relation with food</center></label></th>
+			<th><label for="period"><center>&nbsp &nbsp&nbsp Period</center></label></th>
+			
+		</tr>
+		{%for value in data.drugs%}
+		<tr class="drugstyle" style="font-family: Times New Roman;font-size:20px;">
+
+			<td><textarea id="rcorners" name="otherdrug" rows="1" cols="35">{{value.0}}</textarea></td>
+			<td><input type="checkbox" id="morning" name="morning" >
+			<label for="morning"> M</label>
+			<input type="checkbox" id="afternoon" name="afternoon" >
+			<label for="afternoon">A</label>
+			<input type="checkbox" id="evening" name="evening" >
+			<label for="evening"> E</label>
+			<input type="checkbox" id="night" name="night" >
+			<label for="night"> N</label></td>
+			<td><textarea id="rcorners" name="dosage" rows="1" cols="10">{{value.1}}</textarea></td>
+			<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="radio" id="before" name="before" value="before">
+			<label for="before">Before</label> 
+			<input type="radio" id="after" name="after" value="after">
+			<label for="after">After</label>
+			<input type="radio" id="any" name="any" value="any">
+			<label for="any">Any time</label></td>
+			<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<textarea id="rcorners" name="week" placeholder="days/weeks/month" rows="1" cols="10">{{value.2}}</textarea>
+				<textarea id="rcorners" name="num" placeholder="month" rows="1" cols="10">{{value.3}}</textarea></td>
+		</tr>
+		{%endfor%}
+			<br><br>
+		  <tr>
+			<br><br>
+		  <td colspan="6"><label for="instruction" ><p class="cursive"> Instruction</label><br>
+		  <textarea id="rcorners" name="instruction" rows="3" cols="100"></textarea></td>&nbsp &nbsp
+		  <td>
+		  </tr>
+		</table>
+		<br>
+  
+		</center>
+	  </div>
+	</div>
+	<br><br><br>
+
+	<center>
+		<button type="button" class='button3' style='font-size:30px' onclick="resetvalues()">Reset</button>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <input type="submit" class='button2' style='font-size:30px' value="Continue">
+	</center>
+	
+	</form>
+  
+	<script>
+		AOS.init();
+	var textWrapper = document.querySelector('.ml9 .letters');
+	textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+	
+	anime.timeline({loop: true})
+		.add({
+		targets: '.ml9 .letter',
+		scale: [0, 1],
+		duration: 1500,
+		elasticity: 600,
+		delay: (el, i) => 45 * (i+1)
+		}).add({
+		targets: '.ml9',
+		opacity: 0,
+		duration: 1000,
+		easing: "easeOutExpo",
+		delay: 1000
+		});
+		function speaking()
+	{
+		window.location='/output1'
+		document.getElementById("speaking").innerHTML = "<b>Speak now...<b>";
+		document.getElementById('img').className ='classname';
+    }
+    function resetvalues()
+    {
+        window.location.replace('http://127.0.0.1:8000')
+    }
+	</script>  
+  </body>
+  </html>
